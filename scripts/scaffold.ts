@@ -23,13 +23,13 @@ export async function scaffold(day: number, year: number) {
     describe('Day ${day}', () => {
       describe('Part One', () => {
         it.skip('example', async () => {
-          const input = await readFile('./example.txt')
+          const input = await readFile('./src/${name}/example.txt')
 
           expect(partOne(input)).toEqual(1)
         })
 
         it.skip('input', async () => {
-          const input = await readFile('./input.txt')
+          const input = await readFile('./src/${name}/input.txt')
 
           expect(partOne(input)).toEqual(1)
         })
@@ -37,13 +37,13 @@ export async function scaffold(day: number, year: number) {
 
       describe('Part Two', () => {
         it.skip('example', async () => {
-          const input = await readFile('./example.txt')
+          const input = await readFile('./src/${name}/example.txt')
 
           expect(partTwo(input)).toEqual(2)
         })
 
         it.skip('input', async () => {
-          const input = await readFile('./input.txt')
+          const input = await readFile('./src/${name}/input.txt')
 
           expect(partTwo(input)).toEqual(2)
         })

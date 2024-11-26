@@ -59,10 +59,6 @@ export async function scaffold(day: number, year: number) {
   `
 
   const solution = dedent`
-    export function parse(input: string) {
-      return input
-    }
-
     export function partOne(input: string): number {
       return 1
     }

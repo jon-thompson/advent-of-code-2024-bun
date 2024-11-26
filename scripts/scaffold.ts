@@ -17,23 +17,59 @@ export async function scaffold(day: number, year: number) {
   await mkdir(directory)
 
   const test = dedent`
-  import { describe } from 'bun:test'
+    import { describe, expect, it } from 'bun:test'
+    import { partOne, partTwo } from './${name}'
 
-  describe(${`'Day ${day}'`}, () => {
-    describe('Part One', () => {})
-    
-    describe('Part Two', () => {})
-  })
+    describe('Day ${day}', () => {
+      describe('Part One', () => {
+        it.skip('example', async () => {
+          const input = await readFile('./example.txt')
+
+          expect(partOne(input)).toEqual(1)
+        })
+
+        it.skip('input', async () => {
+          const input = await readFile('./input.txt')
+
+          expect(partOne(input)).toEqual(1)
+        })
+      })
+
+      describe('Part Two', () => {
+        it.skip('example', async () => {
+          const input = await readFile('./example.txt')
+
+          expect(partTwo(input)).toEqual(2)
+        })
+
+        it.skip('input', async () => {
+          const input = await readFile('./input.txt')
+
+          expect(partTwo(input)).toEqual(2)
+        })
+      })
+    })
+
+    async function readFile(path: string): Promise<string> {
+      const file = Bun.file(path)
+
+      return await file.text()
+    }
+
   `
 
   const solution = dedent`
-  export function parse(input: string) {
-    return input
-  }
-  
-  export function partOne(input: ReturnType<typeof parse>) {}
+    export function parse(input: string) {
+      return input
+    }
 
-  export function partTwo(input: ReturnType<typeof parse>) {}
+    export function partOne(input: string): number {
+      return 1
+    }
+
+    export function partTwo(input: string): number {
+      return 2
+    }
   `
 
   console.log(`📂 Fetching your input`)

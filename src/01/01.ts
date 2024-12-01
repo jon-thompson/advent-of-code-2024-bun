@@ -20,6 +20,15 @@ export function calculateDistances([listOne, listTwo]: [
   })
 }
 
+export function calculatesSimilarity([listOne, listTwo]: [
+  number[],
+  number[]
+]): number[] {
+  return listOne.map(l => {
+    return listTwo.filter(r => r === l).length * l
+  })
+}
+
 export function parseLists(input: string): [number[], number[]] {
   const lines = input.split('\n')
 

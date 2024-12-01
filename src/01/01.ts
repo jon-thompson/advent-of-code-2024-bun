@@ -16,7 +16,7 @@ export function calculateDistances([listOne, listTwo]: [
   return listOne.map((l, i) => {
     const r = listTwo[i] ?? 0
 
-    return r - l
+    return Math.abs(r - l)
   })
 }
 

@@ -39,5 +39,8 @@ export function parseLists(input: string): [number[], number[]] {
 }
 
 export function partTwo(input: string): number {
-  return 2
+  const [listOne, listTwo] = parseLists(input)
+  const similarityScores = calculatesSimilarity([listOne, listTwo])
+
+  return similarityScores.reduce((n, sum) => sum + n, 0)
 }

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'bun:test'
-import { partOne, partTwo, parseLists } from './01'
+import { partOne, partTwo, parseLists, calculateDistances } from './01'
 
 describe('Day 1', () => {
   describe('Part One', () => {
@@ -12,10 +12,19 @@ describe('Day 1', () => {
       ])
     })
 
-    it.skip('example', async () => {
+    it('calculates distances', () => {
+      expect(
+        calculateDistances([
+          [2, 3, 4],
+          [3, 4, 5]
+        ])
+      ).toEqual([1, 1, 1])
+    })
+
+    it('example', async () => {
       const input = await readFile('./src/01/example.txt')
 
-      expect(partOne(input)).toEqual(1)
+      expect(partOne(input)).toEqual(11)
     })
 
     it.skip('input', async () => {

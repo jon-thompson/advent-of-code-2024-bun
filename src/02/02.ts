@@ -3,7 +3,17 @@ export function partOne(input: string): number {
 }
 
 export function isSafe(input: string): boolean {
-  return true
+  const levels = input.split(' ').map(Number)
+
+  const unsafeLevel = levels.find((level, i) => {
+    const next = levels[i + 1]
+
+    if (next === undefined) return false
+
+    return next - level > 3
+  })
+
+  return !unsafeLevel
 }
 
 export function partTwo(input: string): number {

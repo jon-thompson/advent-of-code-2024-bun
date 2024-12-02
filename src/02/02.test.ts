@@ -9,6 +9,12 @@ describe('Day 2', () => {
 
         expect(isSafe(input)).toBe(true)
       })
+
+      it('returns false when increase greater than 3', () => {
+        const input = '1 2 7 8 9'
+
+        expect(isSafe(input)).toBe(false)
+      })
     })
 
     it.skip('example', async () => {

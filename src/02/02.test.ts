@@ -33,6 +33,12 @@ describe('Day 2', () => {
 
         expect(isSafe(input)).toBe(false)
       })
+
+      it('returns true when increasing by 1, 2, or 3', () => {
+        const input = '1 3 6 7 9'
+
+        expect(isSafe(input)).toBe(true)
+      })
     })
 
     it.skip('example', async () => {

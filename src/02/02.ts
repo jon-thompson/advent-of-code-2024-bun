@@ -10,9 +10,8 @@ export function isSafe(input: string): boolean {
     const next = levels[i + 1]
 
     if (next === undefined) return false
-    if (increasing && next < level) return true
 
-    return Math.abs(next - level) > 3
+    return (increasing && next < level) || Math.abs(next - level) > 3
   })
 
   return !unsafeLevel

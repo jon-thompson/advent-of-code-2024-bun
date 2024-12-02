@@ -13,7 +13,7 @@ export function isSafe(input: string): boolean {
 
     return (
       next === level ||
-      (increasing && next < level) ||
+      (increasing ? next < level : level < next) ||
       Math.abs(next - level) > 3
     )
   })

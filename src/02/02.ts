@@ -1,5 +1,5 @@
 export function partOne(input: string): number {
-  return 1
+  return input.split('\n').filter(isSafe).length
 }
 
 export function isSafe(input: string): boolean {

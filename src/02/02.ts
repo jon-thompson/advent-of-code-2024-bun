@@ -11,7 +11,11 @@ export function isSafe(input: string): boolean {
 
     if (next === undefined) return false
 
-    return (increasing && next < level) || Math.abs(next - level) > 3
+    return (
+      next === level ||
+      (increasing && next < level) ||
+      Math.abs(next - level) > 3
+    )
   })
 
   return !unsafeLevel

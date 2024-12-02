@@ -27,6 +27,12 @@ describe('Day 2', () => {
 
         expect(isSafe(input)).toBe(false)
       })
+
+      it('returns false when no change', () => {
+        const input = '8 6 4 4 1'
+
+        expect(isSafe(input)).toBe(false)
+      })
     })
 
     it.skip('example', async () => {

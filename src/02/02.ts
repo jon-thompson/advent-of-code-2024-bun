@@ -3,10 +3,14 @@ export function partOne(input: string): number {
 }
 
 export function isSafe(input: string): boolean {
+  return findUnsafeLevels(input).length === 0
+}
+
+function findUnsafeLevels(input: string) {
   const levels = input.split(' ').map(Number)
   const increasing: boolean = (levels[0] ?? 0) < (levels[1] ?? 0)
 
-  const unsafeLevel = levels.find((level, i) => {
+  return levels.filter((level, i) => {
     const next = levels[i + 1]
 
     if (next === undefined) return false
@@ -17,8 +21,6 @@ export function isSafe(input: string): boolean {
       Math.abs(next - level) > 3
     )
   })
-
-  return !unsafeLevel
 }
 
 export function partTwo(input: string): number {

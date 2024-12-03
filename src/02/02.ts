@@ -25,10 +25,10 @@ function findUnsafeLevel(levels: number[]) {
 
 export function partTwo(input: string): number {
   return input.split('\n').filter(report => {
-    const levels = input.split(' ').map(Number)
+    const levels = report.split(' ').map(Number)
     const unsafeLevelIndex = findUnsafeLevel(levels)
 
-    levels.splice(unsafeLevelIndex, 1)
+    if (unsafeLevelIndex > -1) levels.splice(unsafeLevelIndex, 1)
 
     return findUnsafeLevel(levels) === -1
   }).length

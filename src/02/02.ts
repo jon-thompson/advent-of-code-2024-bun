@@ -3,14 +3,14 @@ export function partOne(input: string): number {
 }
 
 export function isSafe(input: string): boolean {
-  return findUnsafeLevels(input).length === 0
+  const levels = input.split(' ').map(Number)
+  return findUnsafeLevel(levels) === -1
 }
 
-function findUnsafeLevels(input: string) {
-  const levels = input.split(' ').map(Number)
+function findUnsafeLevel(levels: number[]) {
   const increasing: boolean = (levels[0] ?? 0) < (levels[1] ?? 0)
 
-  return levels.filter((level, i) => {
+  return levels.findIndex((level, i) => {
     const next = levels[i + 1]
 
     if (next === undefined) return false
@@ -24,5 +24,12 @@ function findUnsafeLevels(input: string) {
 }
 
 export function partTwo(input: string): number {
-  return 2
+  return input.split('\n').filter(report => {
+    const levels = input.split(' ').map(Number)
+    const unsafeLevelIndex = findUnsafeLevel(levels)
+
+    levels.splice(unsafeLevelIndex, 1)
+
+    return findUnsafeLevel(levels) === -1
+  }).length
 }

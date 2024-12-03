@@ -55,10 +55,10 @@ describe('Day 2', () => {
   })
 
   describe('Part Two', () => {
-    it.skip('example', async () => {
+    it('example', async () => {
       const input = await readFile('./src/02/example.txt')
 
-      expect(partTwo(input)).toEqual(2)
+      expect(partTwo(input)).toEqual(4)
     })
 
     it.skip('input', async () => {
